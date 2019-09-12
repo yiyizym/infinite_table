@@ -1,0 +1,2649 @@
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "upload_id": 79,
+    "success_item_count": 1,
+    "failed_item_count": 1,
+    "success": [
+      {
+        "id": 1643,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1644,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515078,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1645,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515079,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1646,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515080,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1647,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515081,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1648,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515082,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1649,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515083,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1650,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515084,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1651,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515085,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1652,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515086,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1653,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515087,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1654,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515088,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1655,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515089,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1656,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515090,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1657,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515091,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1658,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515092,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1659,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515093,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1660,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515094,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1661,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515095,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1662,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515096,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1663,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1664,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1665,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1666,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1667,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1668,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1669,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1670,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1671,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1672,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1673,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1674,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1675,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1676,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1677,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1678,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1679,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1680,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1681,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1682,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1683,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1684,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1685,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1686,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1687,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1688,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1689,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1690,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1691,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1692,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1693,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1694,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1695,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": 1696,
+        "shop_id": 7432648,
+        "is_invited_shop": 0,
+        "item_id": 2147515077,
+        "item_name": "80016 07-03 20:29",
+        "image": "200e3f117195bdbf5f421de23f7985d2,2f7e0b61cee5fa47bb875bfe4e2fd1bd,1ee7d18275e46bd30f39163ab605be88,16c3cc5ad769edf29233c862ced366fb",
+        "model_id": 0,
+        "model_name": "",
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "52",
+        "rebate_price": "7",
+        "purchase_limit": "1",
+        "promotion_stock": "7",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      }
+    ],
+    "failed": [
+      {
+        "failed_reason_code": 1,
+        "shop_id": 7432648,
+        "item_id": 2147515076,
+        "model_id": 0,
+        "original_price": "100",
+        "stock": "10000",
+        "promotion_price": "28",
+        "rebate_price": "20",
+        "purchase_limit": "0",
+        "promotion_stock": "2",
+        "custom_info": [
+          {
+            "custom_info_id": 22,
+            "type": 1,
+            "name": "text123333",
+            "value": "1",
+            "sort_order": 1,
+            "desc": "display text 1",
+            "width": 0,
+            "height": 0
+          },
+          {
+            "custom_info_id": 23,
+            "type": 2,
+            "name": "image123243",
+            "value": "1",
+            "sort_order": 2,
+            "desc": "display image1",
+            "width": 100,
+            "height": 100
+          },
+          {
+            "custom_info_id": 24,
+            "type": 1,
+            "name": "3阮人3阮3人3text2",
+            "value": "1",
+            "sort_order": 3,
+            "desc": "display text 2",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      }
+    ]
+  }
+}
