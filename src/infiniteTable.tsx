@@ -25,7 +25,7 @@ import React from 'react'
 import { Table } from 'antd'
 import { TableProps } from 'antd/lib/table'
 import { debounce } from 'lodash'
-import LoadingPic from '@/assets/img/loading.svg'
+import LoadingPic from './loading.svg'
 
 
 interface InfiniteTableProps<T> extends TableProps<T> {
