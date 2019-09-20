@@ -1,8 +1,31 @@
+// infinite table 大致原理：
+// 1. 基于 Table 组件封装
+// 2. 利用 components 属性注入了自定义的 table 组件，这个组件实现了虚拟滚动
+// 3. 虚拟滚动的实现方式是用一个容器渲染 table 以及另一个肉眼不可见的 1x1 px 大小的定位元素，
+//    容器 position 为 relative , 在它上面绑定了 scroll 监听事件
+//    定位元素 position 为 absolute , 它的 top 为 totalTableRowCount * tableRowHeight ，用于撑开容器的高度
+//    table 元素 position 为 relative , 它的 top 通过 scroll 事件更新，
+//    table 元素不会把全部的 row 都渲染出来，它只会渲染其中的一部分，这也通过 scroll 事件回调计算出来
+
+
+// 关于应用固定列时会出现抖动的问题：
+
+// rc-table 组件 Table.js 在 componentDidUpdate 钩子中 当 isAnyColumnsFixed 为 true 时，会触发  handleWindowResize
+// 继而调用 syncFixedTableRowHeight / setScrollPositionClassName 两个方法
+// 这两个方法内部都会触发 reflow (DOM 元素属性取值： getBoundingClientRect/scrollLeft)
+
+// rc-table 组件 TableRow.js 在 componentDidMount 钩子中会调用 saveRowRef ，当 isAnyColumnsFixed 为 true 时，
+// 有可能调用 setRowHeight 方法，继而调用 getBoundingClientRect ，同样也会触发 reflow ，
+
+
+// 触发 reflow 就会让 scrollTop 改变，继而触发 antd table 内部的 onScroll 事件
+
+
 import React from 'react'
 import { Table } from 'antd'
 import { TableProps } from 'antd/lib/table'
 import { debounce } from 'lodash'
-import LoadingPic from './loading.svg'
+import LoadingPic from '@/assets/img/loading.svg'
 
 
 interface InfiniteTableProps<T> extends TableProps<T> {
@@ -18,52 +41,50 @@ interface InfiniteTableState {
 const pageSize = 50
 const preTableItem = 20
 
-let tableTop: { fixed: number; main: number } = { fixed: 0, main: 0}
+let tableTop = 0
 let ticking = false
 let formerStartIndex = 0
 let formerEndIndex = 0
 
-const isFixedTable = (style: React.CSSProperties): boolean => {
-  return !('width' in style)
-}
-
-const getCustomTable = (itemHeight: number, total: number, instance: React.Component): React.ComponentClass<{style: React.CSSProperties}> => {
+const getCustomTable = (itemHeight: number, total: number, instance: React.Component<any>): React.ComponentClass<{style: React.CSSProperties}> => {
   class CustomTable extends React.Component<{style: React.CSSProperties}> {
     private infiniteTableInstance = instance
     private tableRef = React.createRef<HTMLTableElement>()
 
-    // table 的绝对定位
-    private calculateTableTop = (scrollTop: number): {fixed: number; main: number} => {
+    private calculateTableTop = (scrollTop: number): number => {
       let margin = (scrollTop / itemHeight % 1) * itemHeight
-      let tableTop = Math.max(scrollTop - preTableItem * itemHeight - margin, 0)
-      let fixedTableTop = tableTop ? preTableItem * itemHeight + margin : 0
+      return Math.max(scrollTop - preTableItem * itemHeight - margin, 0)
+    }
+
+    private isFixedTable = (): boolean => {
+      if (!this.tableRef.current) {return false}
+      const tableContainer = this.tableRef.current.parentElement as HTMLElement
+      return tableContainer.className.indexOf('ant-table-body-inner') !== -1
+    }
+
+    private calculateIndexs = (containerScrollTop: number): {startIndex: number; endIndex: number} => {
+      // itemHeight tr 的高度
+      // currentTableTrIndexInView 当前刚好能看得到的 tr 的 Index
+      const currentTableTrIndexInView = Math.floor(containerScrollTop / itemHeight)
+      // startIndex dataSource 的切片开始值
+      const startIndex = Math.max(currentTableTrIndexInView - preTableItem, 0)
+      // endIndex dataSource 的切片结束值
+      const endIndex = startIndex + pageSize - 1
       return {
-        fixed: fixedTableTop,
-        main: tableTop
+        startIndex,
+        endIndex
       }
     }
 
-    private reposition(): void {
+    private reposition = (): void  => {
       if (!this.tableRef.current) {
         ticking = false
         return
       }
-      const table = this.tableRef.current as HTMLTableElement
-      const containerScrollTop = (table.parentElement as HTMLTableElement).scrollTop
-      console.log('containerScrollTop ', containerScrollTop)
-      // itemHeight tr 的高度
-      // currentTableTrIndexInView 当前刚好能看得到的 tr 的 Index:  currentTableTrIndexInView = Math.ceil(scrollTop / itemHeight)
-      const currentTableTrIndexInView = Math.floor(containerScrollTop / itemHeight)
-      // console.log('currentTableTrIndexInView ', currentTableTrIndexInView)
-      // startIndex dataSource 的切片开始值，currentTableTrIndexInView 往前推 preTableItem 个
-      const startIndex = Math.max(currentTableTrIndexInView - preTableItem, 0)
-      // console.log('startIndex ', startIndex)
-      // endIndex dataSource 的切片结束值，currentTableTrIndexInView 往后推 sufTableItem 个
-      const endIndex = startIndex + pageSize - 1
-      // console.log('endIndex ', endIndex)
-
+      const table = this.tableRef.current
+      const containerScrollTop = (table.parentElement as HTMLElement).scrollTop
+      const {startIndex, endIndex} = this.calculateIndexs(containerScrollTop)
       tableTop = this.calculateTableTop(containerScrollTop)
-      // console.log('newTableTop ', tableTop)
       if (formerStartIndex === startIndex && formerEndIndex === endIndex) {
         ticking = false
         return
@@ -78,20 +99,18 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
       })
     }
 
-    private triggerReposition(): void {
-      let customTable = this
-      if (!ticking) {
-        window.requestAnimationFrame((): void => {
-          customTable.reposition.call(customTable)
-        })
-        ticking = true
-      }
+    private triggerReposition = (): void => {
+      if (ticking) { return }
+      window.requestAnimationFrame((): void => {
+        this.reposition()
+      })
+      ticking = true
     }
 
-    private debouncedtriggerReposition = debounce(this.triggerReposition.bind(this), 400)
+    private debouncedtriggerReposition = debounce(this.triggerReposition, 200)
 
     private addLoadingBackground = (): void => {
-      if (isFixedTable(this.props.style)) { return }
+      if (this.isFixedTable()) { return }
       if (!this.tableRef.current) { return }
       const parentElement = this.tableRef.current.parentElement
       if (!parentElement) { return }
@@ -107,25 +126,26 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
       if (!parentElement) { return }
       this.addLoadingBackground()
       // left or right fixed table will also use this customTable to render
-      // dont want to bind scroll event on them
+      // dont bind scroll event on them
       parentElement.style.position = 'relative'
-      if (isFixedTable(this.props.style)) { return }
+      if (this.isFixedTable()) { return }
       parentElement.style.overflow = 'scroll'
-      parentElement.addEventListener('scroll', this.reposition.bind(this), {
+      parentElement.addEventListener('scroll', this.debouncedtriggerReposition, {
         passive: true
       })
     }
+
     public componentWillUnmount(): void {
       if (!this.tableRef.current) { return }
-      if (isFixedTable(this.props.style)) { return }
+      if (this.isFixedTable()) { return }
       const parentElement = this.tableRef.current.parentElement
-      parentElement && parentElement.removeEventListener('scroll', this.reposition)
+      parentElement && parentElement.removeEventListener('scroll', this.debouncedtriggerReposition)
     }
+
     public render(): JSX.Element {
       const tableStyle = this.props.style
       tableStyle.position = 'relative'
-      tableStyle.top = tableTop.main
-      
+      tableStyle.top = tableTop
       return (<>
         <table
           {...this.props}
@@ -156,15 +176,12 @@ class InfinityTable<T> extends React.Component<InfiniteTableProps<T>, InfiniteTa
     endIndex: pageSize,
   }
 
-  private infiniteTableRef = React.createRef<Table<T>>()
-
   public render(): JSX.Element {
-    const {  dataSource, components, itemHeight, total, ...rest } = this.props
+    const { dataSource, components, itemHeight, total, ...rest } = this.props
     const {startIndex, endIndex} = this.state
     const customTable = getCustomTable(itemHeight, total, this)
     return (
       <Table
-        ref={this.infiniteTableRef}
         components={{
           ...components,
           table: customTable
