@@ -61,7 +61,7 @@ const genData = (num: number): RecordType[] => {
 
 class App extends React.Component<{}, StateType> {
   public state = { 
-    data: genData(49)
+    data: genData(1000)
   }
   public render(): JSX.Element {
     const {data} = this.state
