@@ -41,10 +41,17 @@ interface InfiniteTableState {
 const pageSize = 50
 const preTableItem = 20
 
-let tableTop = 0
-let ticking = false
-let formerStartIndex = 0
-let formerEndIndex = 0
+let tableTop : number;
+let ticking : boolean;
+let formerStartIndex : number;
+let formerEndIndex : number;
+
+const initGlobalVarialbes = (): void => {
+  tableTop = 0
+  ticking = false
+  formerStartIndex = 0
+  formerEndIndex = 0
+}
 
 const getCustomTable = (itemHeight: number, total: number, instance: React.Component<any>): React.ComponentClass<{style: React.CSSProperties}> => {
   class CustomTable extends React.Component<{style: React.CSSProperties}> {
@@ -164,16 +171,18 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
       </>)
     }
   }
-
-  (CustomTable as React.ComponentClass<{style: React.CSSProperties}>).displayName  = 'CustomTable'
   return CustomTable as React.ComponentClass<{style: React.CSSProperties}>
 }
 
 class InfinityTable<T> extends React.Component<InfiniteTableProps<T>, InfiniteTableState> {
-
-  public state = {
-    startIndex: 0,
-    endIndex: pageSize,
+  
+  public constructor(props: InfiniteTableProps<T>) {
+    super(props)
+    this.state = {
+      startIndex: 0,
+      endIndex: pageSize,
+    }
+    initGlobalVarialbes()
   }
 
   public render(): JSX.Element {
