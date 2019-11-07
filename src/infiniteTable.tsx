@@ -41,12 +41,12 @@ interface InfiniteTableState {
 const pageSize = 50
 const preTableItem = 20
 
-let tableTop : number;
-let ticking : boolean;
-let formerStartIndex : number;
-let formerEndIndex : number;
+let tableTop: number
+let ticking: boolean
+let formerStartIndex: number
+let formerEndIndex: number
 
-const initGlobalVarialbes = (): void => {
+const initGlobalVariables = (): void => {
   tableTop = 0
   ticking = false
   formerStartIndex = 0
@@ -114,7 +114,7 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
       ticking = true
     }
 
-    private debouncedtriggerReposition = debounce(this.triggerReposition, 200)
+    private debouncedtriggerReposition = debounce(this.triggerReposition, 100)
 
     private addLoadingBackground = (): void => {
       if (this.isFixedTable()) { return }
@@ -151,54 +151,57 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
 
     public render(): JSX.Element {
       const tableStyle = this.props.style
-      tableStyle.position = 'relative'
-      tableStyle.top = tableTop
+      tableStyle.transform = `translate3d(0,${tableTop}px,0)`
       return (<>
         <table
-          {...this.props}
-          ref={this.tableRef}
-          style={tableStyle}
+            {...this.props}
+            ref={this.tableRef}
+            style={tableStyle}
         />
         <div
-          style={{
-            position: 'absolute',
-            width: 1,
-            height: 1,
-            top: itemHeight * (total)
-          }}
+            style={{
+              position: 'absolute',
+              width: 1,
+              height: 1,
+              top: itemHeight * (total)
+            }}
         >
         </div>
       </>)
     }
   }
+
+  (CustomTable as React.ComponentClass<{style: React.CSSProperties}>).displayName  = 'CustomTable'
   return CustomTable as React.ComponentClass<{style: React.CSSProperties}>
 }
 
 class InfinityTable<T> extends React.Component<InfiniteTableProps<T>, InfiniteTableState> {
-  
+
+  private customTable: React.ComponentClass<{ style: React.CSSProperties }>;
+
   public constructor(props: InfiniteTableProps<T>) {
     super(props)
     this.state = {
       startIndex: 0,
-      endIndex: pageSize,
+      endIndex: pageSize
     }
-    initGlobalVarialbes()
+    this.customTable = getCustomTable(props.itemHeight, props.total, this)
+    initGlobalVariables()
   }
 
   public render(): JSX.Element {
-    const { dataSource, components, itemHeight, total, ...rest } = this.props
+    const { dataSource, components, ...rest } = this.props
     const {startIndex, endIndex} = this.state
-    const customTable = getCustomTable(itemHeight, total, this)
     return (
-      <Table
-        components={{
-          ...components,
-          table: customTable
-        }}
-        {...rest}
-        dataSource={dataSource && dataSource.slice(startIndex, endIndex)}
-        pagination={false}
-      />)
+        <Table
+            components={{
+              ...components,
+              table: this.customTable
+            }}
+            {...rest}
+            dataSource={dataSource && dataSource.slice(startIndex, endIndex)}
+            pagination={false}
+        />)
   }
 }
 
