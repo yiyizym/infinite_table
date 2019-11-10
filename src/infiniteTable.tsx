@@ -30,7 +30,6 @@ import LoadingPic from './loading.svg'
 
 interface InfiniteTableProps<T> extends TableProps<T> {
   itemHeight: number;
-  total: number;
 }
 
 interface InfiniteTableState {
@@ -64,9 +63,9 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
     }
 
     private isFixedTable = (): boolean => {
-      if (!this.tableRef.current) {return false}
-      const tableContainer = this.tableRef.current.parentElement as HTMLElement
-      return tableContainer.className.indexOf('ant-table-body-inner') !== -1
+      // MEMO fixed 的可能值是 'left' / 'right' / undefined
+      // @ts-ignore
+      return undefined !== this.props.children[0].props.fixed
     }
 
     private calculateIndexs = (containerScrollTop: number): {startIndex: number; endIndex: number} => {
@@ -185,7 +184,7 @@ class InfinityTable<T> extends React.Component<InfiniteTableProps<T>, InfiniteTa
       startIndex: 0,
       endIndex: pageSize
     }
-    this.customTable = getCustomTable(props.itemHeight, props.total, this)
+    this.customTable = getCustomTable(props.itemHeight, props.dataSource!.length, this)
     initGlobalVariables()
   }
 

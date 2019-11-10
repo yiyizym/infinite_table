@@ -1,9 +1,11 @@
 import React from 'react';
 import InfinityTable from './infiniteTable'
-import { Button, Col, Row } from 'antd';
+import {Button, Col, Row, Table} from 'antd';
 import { ColumnProps } from 'antd/lib/table';
+import {VTComponents} from "virtualizedtableforantd/lib";
 
 interface StateType {
+  num: number;
   data: object[];
 }
 
@@ -60,21 +62,72 @@ const genData = (num: number): RecordType[] => {
 }
 
 class App extends React.Component<{}, StateType> {
-  public state = { 
-    data: genData(1000)
+  public state = {
+    data: genData(1000),
+    num: 0
   }
   public render(): JSX.Element {
-    const {data} = this.state
+    const {data, num} = this.state
     return (
       <Row >
         <Col span={20} offset={2}>
-          <InfinityTable
-            rowKey={(record: RecordType): string => record.id ? record.id.toString() : ''}
-            scroll={{ x: 2400, y: 800 }}
-            columns={columns}
-            dataSource={data}
-            total={data.length}
-            itemHeight={57}
+          <div
+            style={{
+              margin: '10px auto'
+            }}
+          >
+            <span>click count: {num}</span>
+            <button
+                style={{ marginLeft: '10px' }}
+                onClick={() => this.setState({num: num+1})}
+            >click me</button>
+          </div>
+          {/*<InfinityTable*/}
+          {/*    rowSelection={{*/}
+          {/*      onChange: (selectedRowKeys, selectedRows) => {*/}
+          {/*        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);*/}
+          {/*      },*/}
+          {/*    }}*/}
+          {/*  rowKey={(record: RecordType): string => record.id ? record.id.toString() : ''}*/}
+          {/*  scroll={{ x: 2400, y: 800 }}*/}
+          {/*  columns={columns}*/}
+          {/*  dataSource={data}*/}
+          {/*  itemHeight={57}*/}
+          {/*/>*/}
+
+          {/*<Table*/}
+          {/*    rowSelection={{*/}
+          {/*      onChange: (selectedRowKeys, selectedRows) => {*/}
+          {/*        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);*/}
+          {/*      },*/}
+          {/*    }}*/}
+          {/*    rowKey={(record: RecordType): string => record.id ? record.id.toString() : ''}*/}
+          {/*    scroll={{ x: 2400, y: 800 }}*/}
+          {/*    columns={columns}*/}
+          {/*    dataSource={data}*/}
+          {/*    pagination={{*/}
+          {/*      pageSize: 300*/}
+          {/*    }}*/}
+          {/*/>*/}
+
+          <Table
+              components={
+                VTComponents({
+                  id: 1000,
+                })
+              }
+              rowSelection={{
+                onChange: (selectedRowKeys, selectedRows) => {
+                  console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+                },
+              }}
+              rowKey={(record: RecordType): string => record.id ? record.id.toString() : ''}
+              scroll={{ x: 2400, y: 800 }}
+              columns={columns}
+              dataSource={data}
+              pagination={{
+                pageSize: 300
+              }}
           />
         </Col>
       </Row>
