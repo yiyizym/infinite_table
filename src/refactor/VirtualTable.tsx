@@ -1,10 +1,17 @@
 import React from "react";
-import {Fixed, PropsType, Store, VirtualTableContext, VirtualTableProps, VirtualTableState} from "@/refactor/interfaces";
-import {getFixedType} from "@/refactor/helper";
+import {
+    Fixed,
+    PropsType,
+    ReComputeType,
+    StoreType,
+    RowLoadStatus,
+    VirtualTableProps,
+    VirtualTableState
+} from "@/refactor/interfaces";
+import {getFixedType, updateWrapStyle} from "@/refactor/helper";
+import Store, {getCurrentID} from "@/refactor/store";
+import {C} from "./context";
 
-
-
-const C = React.createContext<VirtualTableContext>({head: 0, tail: 0, fixed: Fixed.UNKNOWN});
 
 class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState> {
     private inst: React.RefObject<HTMLTableElement>;
@@ -26,8 +33,12 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
             head: 0,
             tail: 1
         }
-        this.fixed = getFixedType(props as PropsType)
+        this.fixed = getFixedType(props as PropsType);
 
+        if(this.fixed === Fixed.NO) {
+            const store = Store.get(getCurrentID()) as StoreType;
+            store.rowLoadStatus = RowLoadStatus.INIT
+        }
     }
 
     public render(): JSX.Element {
@@ -35,6 +46,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         const { style, children, ...rest } = this.props;
         style.position = 'absolute';
         style.top = top;
+
 
         return (<div
             ref={this.wrapInst}
@@ -45,7 +57,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 ref={this.inst}
                 style={style}
             >
-                <C.Provider value={{ tail, head, fixed: this.fixed }}>
+                <C.Provider value={{tail, head, fixed: this.fixed}}>
                     {children}
                 </C.Provider>
             </table>
@@ -55,12 +67,22 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
     public componentDidMount() {
         switch (this.fixed) {
             case Fixed.LEFT:
+                Store.get(0 - getCurrentID())!.wrapInst = this.wrapInst;
+                break;
             case Fixed.RIGHT:
+                Store.get(1 << 31 + getCurrentID())!.wrapInst = this.wrapInst;
                 break;
             default:
-                // this.wrapInst.current!.parentElement!.onscroll = this.scrollHook;
-
+                this.wrapInst.current!.parentElement!.onscroll = this.scrollHook;
+                let store = Store.get(getCurrentID()) as StoreType
+                store.wrapInst = this.wrapInst;
+                store.reComputeCount = ReComputeType.NOT_CHANGED
+                updateWrapStyle(store.wrapInst.current as HTMLDivElement, store.computedTbodyHeight)
         }
+    }
+
+    private scrollHook = () => {
+
     }
 }
 

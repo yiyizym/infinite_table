@@ -1,13 +1,15 @@
-import {Store, VirtualTableOpts} from "@/refactor/interfaces";
-import store from "@/refactor/store";
+import {StoreType, VirtualTableOpts} from "@/refactor/interfaces";
+import Store, {setCurrentID} from "@/refactor/store";
 import {TableComponents} from "antd/es/table";
 import VirtualTable from "@/refactor/VirtualTable";
+import VirtualTableWrapper from "@/refactor/VirtualTableWrapper";
+import VirtualTableRow from "@/refactor/VirtualTableRow";
 
-const init = (id: number): Store => {
-    const inner = store.get(id) || {} as Store;
-
+const init = (id: number): StoreType => {
+    setCurrentID(id);
+    const inner = Store.get(id) || {} as StoreType;
     if(!inner.components) {
-        store.set(id, inner);
+        Store.set(id, inner);
         inner.components = { table: VirtualTable, wrapper: VirtualTableWrapper, row: VirtualTableRow };
     }
 

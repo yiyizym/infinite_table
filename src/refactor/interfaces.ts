@@ -11,6 +11,36 @@ export enum Fixed {
     RIGHT
 }
 
+export enum ReComputeType {
+    NOT_CHANGED,
+    INCREASE,
+    DECREASE
+}
+
+export enum RowLoadStatus {
+    INIT,
+    LOADED,
+    RUNNING,
+}
+
+export interface StoreType extends VirtualTableOpts {
+    components: {
+        table: React.ElementType,
+        wrapper: React.ElementType,
+        row: React.ElementType
+    };
+    computedTbodyHeight: number;
+    rowHeight: number[];
+    rowCount: number;
+    possibleRowHeight: number;
+    reComputeCount: number;
+    wrapInst: React.RefObject<HTMLDivElement>;
+    context: React.Context<VirtualTableContext>;
+    rowLoadStatus: RowLoadStatus;
+    leftPointer: any;
+    rightPointer: any;
+}
+
 export interface VirtualTableContext {
     head: number;
     tail: number;
@@ -43,19 +73,17 @@ export interface VirtualTableOpts {
     overscanRowCount?: number;
 }
 
-export interface Store extends VirtualTableOpts {
-    components: {
-        table: React.ElementType,
-        wrapper: React.ElementType,
-        row: React.ElementType
-    };
-    computedHeight: number;
-    rowHeight: number[];
-    rowCount: number;
-    possibleRowHeight: number;
-    shouldCompute: boolean;
-    wrapInst: React.RefObject<HTMLDivElement>;
-    context: React.Context<VirtualTableContext>;
-    leftPointer: any;
-    rightPointer: any;
+interface PropsWithIndex {
+    props: {
+        index: number;
+    }
+}
+
+export interface VirtualTableRowProps {
+    children: PropsWithIndex[]
+}
+
+
+export interface VirtualTableWrapperProps {
+    children: any[];
 }

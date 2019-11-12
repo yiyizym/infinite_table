@@ -1,5 +1,11 @@
-import {Store} from "@/refactor/interfaces";
+import {StoreType} from "@/refactor/interfaces";
 
-const store: Map<number, Store> = new Map();
+let currentID = 0;
 
-export default store;
+const Store: Map<number, StoreType> = new Map();
+
+
+export const setCurrentID = (id: number): void => { currentID = id;}
+export const getCurrentID = (): number => { return currentID;}
+
+export default Store;
