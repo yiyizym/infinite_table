@@ -23,6 +23,30 @@ export enum RowLoadStatus {
     RUNNING,
 }
 
+export interface consolidatedEventType {
+    top: number;
+    left: number;
+    flag: number;
+}
+
+export enum ScrollEvent {
+    NULL = 0,
+    INIT = 1, // 1
+    RECOMPUTE = 2,// 10
+    RESTORE = 4, // 100
+    NATIVE = 8, // 1000
+    BARRIER = 16, // 10000
+    MASK = 0x7, // 111
+}
+
+export interface ScrollHookOpts {
+    target: {
+        scrollTop: number;
+        scrollLeft: number
+    };
+    flag: ScrollEvent;
+}
+
 export interface StoreType extends VirtualTableOpts {
     components: {
         table: React.ElementType,
@@ -48,7 +72,7 @@ export interface VirtualTableContext {
 }
 
 export interface VirtualTableProps extends ObjWithAny {
-    children: ReactNode;
+    children: TableChildrenProps[];
     style: React.CSSProperties;
 }
 
@@ -58,14 +82,11 @@ export interface VirtualTableState {
     tail: number;
 }
 
-interface PropsWithFixed {
+interface TableChildrenProps {
     props: {
         fixed: 'left'|'right'|undefined;
+        children: any[];
     }
-}
-
-export interface PropsType {
-    children: PropsWithFixed[]
 }
 
 export interface VirtualTableOpts {

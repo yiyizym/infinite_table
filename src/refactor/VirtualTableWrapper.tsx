@@ -33,6 +33,11 @@ class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
         if(this.fixed !== Fixed.NO) return;
         predicateTbodyHeight()
     }
+
+    public componentDidUpdate(): void {
+        if(this.fixed !== Fixed.NO) return;
+        predicateTbodyHeight()
+    }
 }
 
 export default VirtualTableWrapper;

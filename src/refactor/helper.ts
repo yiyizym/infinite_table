@@ -1,8 +1,8 @@
-import {Fixed, PropsType, ReComputeType, RowLoadStatus, StoreType} from "@/refactor/interfaces";
+import {Fixed, VirtualTableProps, RowLoadStatus, StoreType} from "@/refactor/interfaces";
 import Store, {getCurrentID} from "@/refactor/store";
 
 
-export const getFixedType = (props: PropsType): Fixed => {
+export const getFixedType = (props: VirtualTableProps): Fixed => {
     const map = {
         'left': Fixed.LEFT,
         'right': Fixed.RIGHT,
@@ -77,4 +77,51 @@ export const predicateTbodyHeight = (): void => {
     }
 
     store.computedTbodyHeight = computedTbodyHeight;
+}
+
+
+export const calculatePositions = (scrollTop: number): [number, number, number] => {
+    const store = Store.get(getCurrentID()) as StoreType;
+    const { rowHeight, rowCount, computedTbodyHeight, possibleRowHeight, overscanRowCount } = store;
+
+    let overscanCount = overscanRowCount as number;
+
+    const offsetHeight = store.wrapInst.current!.parentElement!.offsetHeight; // HACK
+
+    let accumulatedTop = 0, i = 0;
+    for(; i < rowCount; i++) {
+        if(accumulatedTop > scrollTop) break;
+        accumulatedTop += (rowHeight[i] || possibleRowHeight);
+    }
+
+    while(i-- > 0 && overscanCount-- > 0) {
+        accumulatedTop -= (rowHeight[i] || possibleRowHeight);
+    }
+
+    overscanCount = overscanRowCount as number * 2
+
+    let toRenderHeight = 0, j = i;
+    for (; j < rowCount; ++j) {
+        if(toRenderHeight > (computedTbodyHeight || offsetHeight)) break;
+        toRenderHeight += (rowHeight[j] || possibleRowHeight);
+    }
+
+    // 这步处理到底有没有必要
+    while(overscanCount-- > 0 && j < rowCount) {
+        toRenderHeight += (rowHeight[j] || possibleRowHeight);
+        j++;
+    }
+
+    return [i, j, 0|accumulatedTop];
+
+}
+
+
+export const scrollTo = (top: number, left: number): void => {
+    const store = Store.get(getCurrentID()) as StoreType;
+    store.wrapInst.current!.parentElement!. scrollTo(top, left);
+
+    const leftFixedStore = Store.get(0 - getCurrentID()), rightFixedStore = Store.get(1 << 31 + getCurrentID());
+    if(leftFixedStore) { leftFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
+    if(rightFixedStore) { rightFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
 }
