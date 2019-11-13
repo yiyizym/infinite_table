@@ -13,12 +13,12 @@ export const getFixedType = (props: VirtualTableProps): Fixed => {
 
 export const updateWrapStyle = (wrap: HTMLDivElement, height: number): void => {
     wrap.style.height = `${height < 0 ? 0 : height}px`;
+    wrap.style.maxHeight = `${height < 0 ? 0 : height}px`;
 };
 
 
 export const collectRowHeight = (index: number, height: number): void => {
     console.assert(height !== 0);
-    console.log('1!!!!');
     const store = Store.get(getCurrentID()) as StoreType;
     const { computedTbodyHeight = 0, rowHeight = [] } = store;
     let newComputedHeight = computedTbodyHeight;
@@ -84,7 +84,7 @@ export const predicateTbodyHeight = (): void => {
 
 export const calculatePositions = (scrollTop: number): [number, number, number] => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { rowHeight, rowCount, computedTbodyHeight, possibleRowHeight, overScanRowCount } = store;
+    const { rowHeight, rowCount, height, possibleRowHeight, overScanRowCount } = store;
 
     let overScanCount = overScanRowCount as number;
 
@@ -96,16 +96,16 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
         accumulatedTop += (rowHeight[i] || possibleRowHeight);
     }
 
-    while(i-- > 0 && overScanCount-- > 0) {
-        accumulatedTop -= (rowHeight[i] || possibleRowHeight);
+    while(i > 0 && overScanCount-- > 0) {
+        accumulatedTop -= (rowHeight[--i] || possibleRowHeight);
     }
 
     overScanCount = overScanRowCount as number * 2;
 
     let toRenderHeight = 0, j = i;
-    for (; j < rowCount; ++j) {
-        if(toRenderHeight > (computedTbodyHeight || offsetHeight)) break;
-        toRenderHeight += (rowHeight[j] || possibleRowHeight);
+    for (; j < rowCount;) {
+        if(toRenderHeight > (height || offsetHeight)) break;
+        toRenderHeight += (rowHeight[++j] || possibleRowHeight);
     }
 
     // 这步处理到底有没有必要

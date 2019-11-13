@@ -8,10 +8,11 @@ import VirtualTableRow from "./VirtualTableRow";
 import {log} from "./helper";
 
 const init = (opts: VirtualTableOpts): StoreType => {
-    setCurrentID(opts.id);
-    const inner = (Store.get(opts.id) || opts) as StoreType;
+    let actualOpts = Object.assign({}, {overScanRowCount: 5}, opts);
+    setCurrentID(actualOpts.id);
+    const inner = (Store.get(actualOpts.id) || actualOpts) as StoreType;
     if(!inner.components) {
-        Store.set(opts.id, inner);
+        Store.set(actualOpts.id, inner);
         inner.context = React.createContext<VirtualTableContext>({head: 0, tail: 0, fixed: Fixed.UNKNOWN});
         inner.components = { table: VirtualTable, wrapper: VirtualTableWrapper, row: VirtualTableRow };
     }
@@ -22,7 +23,6 @@ const init = (opts: VirtualTableOpts): StoreType => {
 
 export const VirtualComponents = (opts: VirtualTableOpts): TableComponents => {
     const inner = init(opts);
-    log('init VirtualComponents with', opts);
     return {
         table: inner.components.table,
         body: {

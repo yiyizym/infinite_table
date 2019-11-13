@@ -48,7 +48,7 @@ const columns: ColumnProps<RecordType>[] = [{
         action
       </Button>
     )
-}]
+}];
 
 const genData = (num: number): RecordType[] => {
   return Array.from({ length: num }, (_: void,index: number): RecordType => {
@@ -60,13 +60,13 @@ const genData = (num: number): RecordType[] => {
       height: index
     }
   })
-}
+};
 
 class App extends React.Component<{}, StateType> {
   public state = {
-    data: genData(1000),
+    data: genData(100),
     num: 0
-  }
+  };
   public render(): JSX.Element {
     const {data, num} = this.state
     return (
@@ -127,9 +127,7 @@ class App extends React.Component<{}, StateType> {
               scroll={{ x: 2400, y: 800 }}
               columns={columns}
               dataSource={data}
-              pagination={{
-                pageSize: 300
-              }}
+              pagination={false}
           />
         </Col>
       </Row>

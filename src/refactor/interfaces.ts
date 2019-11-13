@@ -48,6 +48,7 @@ export interface StoreType extends VirtualTableOpts {
         row: React.ElementType
     };
     computedTbodyHeight: number;
+    height?: number;
     rowHeight: number[];
     rowCount: number;
     possibleRowHeight: number;

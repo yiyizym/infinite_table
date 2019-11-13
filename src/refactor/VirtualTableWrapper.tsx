@@ -20,8 +20,10 @@ class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
                 {
                     ({ head, tail, fixed }) => {
                         if(this.fixed === Fixed.UNKNOWN) { this.fixed = fixed; }
-                        this.actualRowCount = children.length;
-                        setActualRowCount(this.actualRowCount);
+                        if(this.actualRowCount !== children.length && (fixed === Fixed.NO)) {
+                            setActualRowCount(children.length);
+                            this.actualRowCount = children.length;
+                        }
                         return <tbody {...restProps}>{children.slice(head, tail)}</tbody>
                     }
                 }
