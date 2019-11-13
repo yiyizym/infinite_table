@@ -1,25 +1,26 @@
-import {Fixed, VirtualTableProps, RowLoadStatus, StoreType} from "@/refactor/interfaces";
-import Store, {getCurrentID} from "@/refactor/store";
+import {Fixed, VirtualTableProps, RowLoadStatus, StoreType} from "./interfaces";
+import Store, {getCurrentID} from "./store";
 
 
 export const getFixedType = (props: VirtualTableProps): Fixed => {
     const map = {
         'left': Fixed.LEFT,
         'right': Fixed.RIGHT,
-    }
+    };
     return props.children[0].props.fixed ? map[props.children[0].props.fixed] : Fixed.NO;
-}
+};
 
 
 export const updateWrapStyle = (wrap: HTMLDivElement, height: number): void => {
     wrap.style.height = `${height < 0 ? 0 : height}px`;
-}
+};
 
 
 export const collectRowHeight = (index: number, height: number): void => {
-    console.assert(height !== 0)
-    const store = Store.get(getCurrentID()) as StoreType
-    const { computedTbodyHeight, rowHeight = [] } = store
+    console.assert(height !== 0);
+    console.log('1!!!!');
+    const store = Store.get(getCurrentID()) as StoreType;
+    const { computedTbodyHeight = 0, rowHeight = [] } = store;
     let newComputedHeight = computedTbodyHeight;
     if(store.possibleRowHeight === -1) {
         store.possibleRowHeight = height;
@@ -43,7 +44,8 @@ export const collectRowHeight = (index: number, height: number): void => {
     }
 
     store.computedTbodyHeight = newComputedHeight;
-}
+    store.rowHeight = rowHeight;
+};
 
 
 export const  setActualRowCount = (rowCount: number): void => {
@@ -51,7 +53,7 @@ export const  setActualRowCount = (rowCount: number): void => {
     const preRowCount = store.rowCount || 0;
     store.reComputeCount = rowCount - preRowCount;
     store.rowCount = rowCount;
-}
+};
 
 
 export const predicateTbodyHeight = (): void => {
@@ -77,14 +79,14 @@ export const predicateTbodyHeight = (): void => {
     }
 
     store.computedTbodyHeight = computedTbodyHeight;
-}
+};
 
 
 export const calculatePositions = (scrollTop: number): [number, number, number] => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { rowHeight, rowCount, computedTbodyHeight, possibleRowHeight, overscanRowCount } = store;
+    const { rowHeight, rowCount, computedTbodyHeight, possibleRowHeight, overScanRowCount } = store;
 
-    let overscanCount = overscanRowCount as number;
+    let overScanCount = overScanRowCount as number;
 
     const offsetHeight = store.wrapInst.current!.parentElement!.offsetHeight; // HACK
 
@@ -94,11 +96,11 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
         accumulatedTop += (rowHeight[i] || possibleRowHeight);
     }
 
-    while(i-- > 0 && overscanCount-- > 0) {
+    while(i-- > 0 && overScanCount-- > 0) {
         accumulatedTop -= (rowHeight[i] || possibleRowHeight);
     }
 
-    overscanCount = overscanRowCount as number * 2
+    overScanCount = overScanRowCount as number * 2;
 
     let toRenderHeight = 0, j = i;
     for (; j < rowCount; ++j) {
@@ -107,21 +109,28 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
     }
 
     // 这步处理到底有没有必要
-    while(overscanCount-- > 0 && j < rowCount) {
+    while(overScanCount-- > 0 && j < rowCount) {
         toRenderHeight += (rowHeight[j] || possibleRowHeight);
         j++;
     }
 
     return [i, j, 0|accumulatedTop];
 
-}
+};
 
 
 export const scrollTo = (top: number, left: number): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    store.wrapInst.current!.parentElement!. scrollTo(top, left);
+    store.wrapInst.current!.parentElement!.scrollTo(left, top);
 
     const leftFixedStore = Store.get(0 - getCurrentID()), rightFixedStore = Store.get(1 << 31 + getCurrentID());
     if(leftFixedStore) { leftFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
     if(rightFixedStore) { rightFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
-}
+};
+
+
+export const log = (...args: any): void => {
+    const store = Store.get(getCurrentID()) as StoreType;
+    if(!store.debug) { return }
+    console.log(...args);
+};

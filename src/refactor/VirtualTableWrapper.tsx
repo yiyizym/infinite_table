@@ -1,7 +1,7 @@
 import React from "react";
-import {Fixed, VirtualTableWrapperProps} from "@/refactor/interfaces";
+import {Fixed, VirtualTableWrapperProps} from "./interfaces";
 import {C} from "./context";
-import {predicateTbodyHeight, setActualRowCount} from "@/refactor/helper";
+import {predicateTbodyHeight, setActualRowCount} from "./helper";
 
 class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
     private actualRowCount: number;

@@ -3,6 +3,7 @@ import InfinityTable from './infiniteTable'
 import {Button, Col, Row, Table} from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import {VTComponents} from "virtualizedtableforantd/lib";
+import { VirtualComponents } from "./refactor";
 
 interface StateType {
   num: number;
@@ -112,9 +113,10 @@ class App extends React.Component<{}, StateType> {
 
           <Table
               components={
-                VTComponents({
-                  id: 1000,
-                })
+                VirtualComponents({
+                      id: 1000,
+                      debug: true
+                  })
               }
               rowSelection={{
                 onChange: (selectedRowKeys, selectedRows) => {

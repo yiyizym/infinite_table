@@ -1,12 +1,12 @@
 import React from "react";
-import {Fixed, StoreType, RowLoadStatus, VirtualTableRowProps, VirtualTableState} from "@/refactor/interfaces";
+import {Fixed, StoreType, RowLoadStatus, VirtualTableRowProps} from "./interfaces";
 import {C} from "./context";
-import {collectRowHeight} from "@/refactor/helper";
-import Store, {getCurrentID} from "@/refactor/store";
+import {collectRowHeight} from "./helper";
+import Store, {getCurrentID} from "./store";
 
 class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
-    private inst: React.RefObject<HTMLTableRowElement>;
+    private readonly inst: React.RefObject<HTMLTableRowElement>;
     private fixed: Fixed;
 
     public constructor(props: VirtualTableRowProps) {

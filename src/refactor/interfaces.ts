@@ -1,4 +1,5 @@
-import React, {ReactNode} from "react";
+import React from "react";
+import VirtualTable from "./VirtualTable";
 
 interface ObjWithAny {
     [key: string]: any
@@ -9,12 +10,6 @@ export enum Fixed {
     NO,
     LEFT,
     RIGHT
-}
-
-export enum ReComputeType {
-    NOT_CHANGED,
-    INCREASE,
-    DECREASE
 }
 
 export enum RowLoadStatus {
@@ -35,7 +30,6 @@ export enum ScrollEvent {
     RECOMPUTE = 2,// 10
     RESTORE = 4, // 100
     NATIVE = 8, // 1000
-    BARRIER = 16, // 10000
     MASK = 0x7, // 111
 }
 
@@ -61,8 +55,15 @@ export interface StoreType extends VirtualTableOpts {
     wrapInst: React.RefObject<HTMLDivElement>;
     context: React.Context<VirtualTableContext>;
     rowLoadStatus: RowLoadStatus;
-    leftPointer: any;
-    rightPointer: any;
+    leftPointer: VirtualTable;
+    rightPointer: VirtualTable;
+    debug: boolean;
+}
+
+export interface FixedStoreType {
+    wrapInst: React.RefObject<HTMLDivElement>;
+    leftPointer?: VirtualTable;
+    rightPointer?: VirtualTable;
 }
 
 export interface VirtualTableContext {
@@ -73,7 +74,6 @@ export interface VirtualTableContext {
 
 export interface VirtualTableProps extends ObjWithAny {
     children: TableChildrenProps[];
-    style: React.CSSProperties;
 }
 
 export interface VirtualTableState {
@@ -91,7 +91,8 @@ interface TableChildrenProps {
 
 export interface VirtualTableOpts {
     readonly id: number;
-    overscanRowCount?: number;
+    overScanRowCount?: number;
+    debug?: boolean;
 }
 
 interface PropsWithIndex {
