@@ -9,13 +9,14 @@ export enum Fixed {
     UNKNOWN = -1,
     NO,
     LEFT,
-    RIGHT
+    RIGHT,
 }
 
 export enum RowLoadStatus {
     INIT,
     LOADED,
     RUNNING,
+    CACHE
 }
 
 export interface consolidatedEventType {

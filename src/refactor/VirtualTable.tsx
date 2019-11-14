@@ -57,10 +57,12 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
     private initStore = (): void => {
         if (this.fixed === Fixed.NO) {
             const store = Store.get(getCurrentID()) as StoreType;
+            if (store.rowLoadStatus !== RowLoadStatus.CACHE) {
+                store.possibleRowHeight = -1
+                store.computedTbodyHeight = 0
+                store.reComputeCount = 0
+            }
             store.rowLoadStatus = RowLoadStatus.INIT;
-            store.possibleRowHeight = -1;
-            store.computedTbodyHeight = 0;
-            store.reComputeCount = 0;
         } else if(this.fixed === Fixed.LEFT) {
             Store.set(0 - getCurrentID(), { leftPointer: this } as unknown as FixedStoreType);
         } else if(this.fixed === Fixed.RIGHT) {
@@ -137,6 +139,14 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
             flag: ScrollEvent.RECOMPUTE
         })
 
+    }
+
+    public componentWillUnmount(): void {
+        // Store.delete(getCurrentID())
+        // Store.delete(0 - getCurrentID())
+        // Store.delete((1 << 31) + getCurrentID())
+        const store = Store.get(getCurrentID()) as StoreType;
+        store.rowLoadStatus = RowLoadStatus.CACHE;
     }
 
     /**
