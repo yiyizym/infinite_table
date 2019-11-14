@@ -34,7 +34,7 @@ export const collectRowHeight = (index: number, height: number): void => {
 
     rowHeight[index] = height;
 
-    if(computedTbodyHeight !== newComputedHeight && store.rowLoadStatus !== RowLoadStatus.INIT) {
+    if(computedTbodyHeight !== newComputedHeight && store.rowLoadStatus === RowLoadStatus.LOADED) {
         updateWrapStyle(store.wrapInst.current as  HTMLDivElement, newComputedHeight);
         const leftFixedStore = Store.get(0 - getCurrentID());
         const rightFixedStore = Store.get((1 << 31) + getCurrentID());

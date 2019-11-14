@@ -111,7 +111,8 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 store.reComputeCount = 0;
         }
         updateWrapStyle(this.wrapInst.current as HTMLDivElement, store.computedTbodyHeight);
-        store.rowLoadStatus = RowLoadStatus.RUNNING;
+        if (this.props.children[2].props.children.length === 0) { return } // table body 的 children
+
         this.scrollHook({
             target: { scrollTop: 0, scrollLeft: 0 },
             flag: ScrollEvent.INIT
@@ -136,12 +137,6 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
             flag: ScrollEvent.RECOMPUTE
         })
 
-    }
-
-    public componentWillUnmount(): void {
-        Store.delete(getCurrentID());
-        Store.delete(0 - getCurrentID());
-        Store.delete((1 << 31) + getCurrentID());
     }
 
     /**
