@@ -95,7 +95,6 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
     }
 
     public componentDidMount(): void {
-        log('VirtualTable componentDidMount');
         let store = Store.get(getCurrentID()) as StoreType;
         switch (this.fixed) {
             case Fixed.LEFT:
@@ -112,21 +111,11 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 store.reComputeCount = 0;
         }
         updateWrapStyle(this.wrapInst.current as HTMLDivElement, store.computedTbodyHeight);
-
-        if(this.props.children[2].props.children.length === 0) { return; } // TODO figure out this
         store.rowLoadStatus = RowLoadStatus.RUNNING;
-
-        if(this.consolidatedEvent.flag === ScrollEvent.RESTORE) {
-            this.scrollHook({
-                target: { scrollTop: this.scrollTop, scrollLeft: this.scrollLeft },
-                flag: ScrollEvent.NULL
-            })
-        } else {
-            this.scrollHook({
-                target: { scrollTop: 0, scrollLeft: 0 },
-                flag: ScrollEvent.INIT
-            })
-        }
+        this.scrollHook({
+            target: { scrollTop: 0, scrollLeft: 0 },
+            flag: ScrollEvent.INIT
+        });
     }
 
     public componentDidUpdate(): void {
@@ -140,25 +129,12 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         }
         updateWrapStyle(store.wrapInst.current!, store.computedTbodyHeight);
 
-        if(store.rowLoadStatus === RowLoadStatus.INIT) { return; }
-
-        if(store.rowLoadStatus === RowLoadStatus.LOADED) {
-            store.rowLoadStatus = RowLoadStatus.RUNNING;
-            this.scrollHook({
-                target: { scrollTop: 0, scrollLeft: 0 },
-                flag: ScrollEvent.INIT
-            })
-        }
-
-        if(store.rowLoadStatus === RowLoadStatus.RUNNING) {
-            if(store.reComputeCount !== 0) {
-                store.reComputeCount = 0; // TODO why
-                this.scrollHook({
-                    target: { scrollTop: this.scrollTop, scrollLeft: this.scrollLeft },
-                    flag: ScrollEvent.RECOMPUTE
-                })
-            }
-        }
+        if(store.reComputeCount === 0) { return }
+        store.reComputeCount = 0;
+        this.scrollHook({
+            target: { scrollTop: this.scrollTop, scrollLeft: this.scrollLeft },
+            flag: ScrollEvent.RECOMPUTE
+        })
 
     }
 
@@ -168,6 +144,20 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         Store.delete((1 << 31) + getCurrentID());
     }
 
+    /**
+     * scrollHook 被调用时机：
+     *  1. 在 table 滚动时原生 onscrll 触发
+     *  2. 在 VirtualTable componentDidUpdate / componentDidMount 里调用
+     *  3. 在 setState 的回调里调用
+     *
+     * scrollHook 内在逻辑：
+     *  参数：
+     *      1. 原生事件触发: Event
+     *      2. 在生命周期函数回调触发: ScrollHookOpts
+     *      3. 在 setState 回调触发: null
+     *  对前两种触发，用一个队列有选择地记录下来，对最后一种，消耗队列
+     * @param opts
+     */
     private scrollHook = (opts: ScrollHookOpts | Event | null) => {
         let skip = 0;
         const delayedEvents = this.delayedEvents;
@@ -176,8 +166,8 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 for (let i = 0; i < delayedEvents.length; ++i) {
                     const delayedEvent = delayedEvents[i];
                     if(delayedEvent instanceof Event) { continue }
-                    if(!(delayedEvents[i] instanceof Event) && opts.flag === delayedEvent.flag) { return; } // 阻止再次触发已经在队列中的事件
-                    if(!skip && (delayedEvent.flag & ScrollEvent.MASK)) { skip = 1 } // 如果 flag 是 INIT/RECOMPUTE/RESTORE 其中一种就 skip
+                    if(!(delayedEvents[i] instanceof Event) && opts.flag === delayedEvent.flag) { return; } // 阻止往队列中塞入已经在队列中的事件，中止后续处理流程
+                    if(!skip && (delayedEvent.flag & ScrollEvent.MASK)) { skip = 1 } // 如果队列中有 flag 是 INIT/RECOMPUTE 的事件，除了将新事件入队之外，不走后续处理流程
                 }
             }
             delayedEvents.push(opts);
@@ -203,7 +193,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 this.consolidatedEvent.top = (delayedEvent as ScrollHookOpts).target.scrollTop; // 原生scroll事件的 target 其实是有 scrollTop 的，但是 ts 和 react 的类型没有
                 this.consolidatedEvent.left = (delayedEvent as ScrollHookOpts).target.scrollLeft;
 
-                if(flag & ScrollEvent.MASK) break; // 如果 flag 是 INIT/RECOMPUTE/RESTORE 其中一种就跳出
+                if(flag & ScrollEvent.MASK) break; // 如果 flag 是 INIT/RECOMPUTE 其中一种就跳出
             }
             this.consolidatedEvent.flag |= flag;
             if(this.consolidatedEvent.flag !== ScrollEvent.NULL) {
@@ -212,6 +202,15 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         }, 20)
     };
 
+    /**
+     * update 绝大多数时候（除了 delayedEvents 只有一个元素）只会在自身 setState 的回调中被 scrollHook 触发调用
+     *   做的事情：
+     *      1. 重新计算需要渲染的 tr 的下标
+     *      2. 根据 flag 以及之前的 tr 的下标决定是否 setState
+     *      3. 如果 flag 是 INIT/COMPUTED ，在 setState 回调中会调用 scrollTo ，继而触发 onscroll 事件
+     *
+     * @param timeStamp
+     */
     private update = (timeStamp: number): void => {
         cancelAnimationFrame(timeStamp);
         this.throttling = false;

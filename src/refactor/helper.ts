@@ -96,21 +96,21 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
         accumulatedTop += (rowHeight[i] || possibleRowHeight);
     }
 
+    // 确定加载进来的第一条条目的高度位置
     while(i > 0 && overScanCount-- > 0) {
         accumulatedTop -= (rowHeight[--i] || possibleRowHeight);
     }
 
-    overScanCount = overScanRowCount as number * 2;
-
+    // 加载前面以及看得见的条目
     let toRenderHeight = 0, j = i;
     for (; j < rowCount;) {
         if(toRenderHeight > (height || offsetHeight)) break;
         toRenderHeight += (rowHeight[++j] || possibleRowHeight);
     }
 
-    // 这步处理到底有没有必要
+    // 加载后面看不见的条目
+    overScanCount = overScanRowCount as number;
     while(overScanCount-- > 0 && j < rowCount) {
-        toRenderHeight += (rowHeight[j] || possibleRowHeight);
         j++;
     }
 
