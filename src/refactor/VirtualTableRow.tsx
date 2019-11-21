@@ -1,7 +1,7 @@
 import React from "react";
 import {Fixed, StoreType, RowLoadStatus, VirtualTableRowProps} from "./interfaces";
 import {C} from "./context";
-import {collectRowHeight} from "./helper";
+import {updateTbodyAndRowHeight} from "./helper";
 import Store, {getCurrentID} from "./store";
 
 class VirtualTableRow extends React.Component<VirtualTableRowProps> {
@@ -32,14 +32,14 @@ class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
     public componentDidMount():void {
         if(this.fixed !== Fixed.NO) return;
-        collectRowHeight(this.props.children[0].props.index, this.inst.current!.offsetHeight);
+        updateTbodyAndRowHeight(this.props.children[0].props.index, this.inst);
         const store = Store.get(getCurrentID()) as StoreType;
         if(store.rowLoadStatus === RowLoadStatus.INIT) { store.rowLoadStatus = RowLoadStatus.LOADED; }
     }
 
     public componentDidUpdate():void {
         if(this.fixed !== Fixed.NO) return;
-        collectRowHeight(this.props.children[0].props.index, this.inst.current!.offsetHeight)
+        updateTbodyAndRowHeight(this.props.children[0].props.index, this.inst)
     }
 
 

@@ -1,6 +1,6 @@
 import {Fixed, VirtualTableProps, RowLoadStatus, StoreType} from "./interfaces";
 import Store, {getCurrentID} from "./store";
-
+import React from "react";
 
 export const getFixedType = (props: VirtualTableProps): Fixed => {
     const map = {
@@ -17,24 +17,33 @@ export const updateWrapStyle = (wrap: HTMLDivElement, height: number): void => {
 };
 
 
-export const collectRowHeight = (index: number, height: number): void => {
-    console.assert(height !== 0);
+const collectRowHeight = (rowIndex: number, rowRef: React.RefObject<HTMLTableRowElement>): Promise<number> => {
+    return new Promise((resolve, reject) => {
+        window.requestAnimationFrame(() => {
+            const store = Store.get(getCurrentID()) as StoreType;
+            const { computedTbodyHeight = 0, rowHeight = [] } = store;
+            let newComputedHeight = computedTbodyHeight;
+            const trHeight = rowRef.current!.offsetHeight;
+            if(store.possibleRowHeight === -1) {
+                store.possibleRowHeight = trHeight;
+            }
+            if(rowHeight[rowIndex]) {
+                newComputedHeight += (trHeight - rowHeight[rowIndex])
+            } else {
+                newComputedHeight += trHeight - store.possibleRowHeight;
+            }
+            rowHeight[rowIndex] = trHeight;
+            store.rowHeight = rowHeight;
+            resolve(newComputedHeight)
+        })
+    })
+};
+
+export const updateTbodyAndRowHeight = async (rowIndex: number, rowRef: React.RefObject<HTMLTableRowElement>): Promise<void> => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { computedTbodyHeight = 0, rowHeight = [] } = store;
-    let newComputedHeight = computedTbodyHeight;
-    if(store.possibleRowHeight === -1) {
-        store.possibleRowHeight = height;
-    }
-
-    if(rowHeight[index]) {
-        newComputedHeight += (height - rowHeight[index])
-    } else {
-        newComputedHeight += height - store.possibleRowHeight;
-    }
-
-    rowHeight[index] = height;
-
-    if(computedTbodyHeight !== newComputedHeight && store.rowLoadStatus === RowLoadStatus.LOADED) {
+    const newComputedHeight = await collectRowHeight(rowIndex, rowRef);
+    if(store.computedTbodyHeight !== newComputedHeight && store.rowLoadStatus === RowLoadStatus.LOADED) {
+        store.computedTbodyHeight = newComputedHeight;
         updateWrapStyle(store.wrapInst.current as  HTMLDivElement, newComputedHeight);
         const leftFixedStore = Store.get(0 - getCurrentID());
         const rightFixedStore = Store.get((1 << 31) + getCurrentID());
@@ -42,9 +51,6 @@ export const collectRowHeight = (index: number, height: number): void => {
         leftFixedStore && updateWrapStyle(leftFixedStore.wrapInst.current as HTMLDivElement, newComputedHeight);
         rightFixedStore && updateWrapStyle(rightFixedStore.wrapInst.current as HTMLDivElement, newComputedHeight);
     }
-
-    store.computedTbodyHeight = newComputedHeight;
-    store.rowHeight = rowHeight;
 };
 
 
