@@ -1,16 +1,18 @@
 import React from "react";
 import {Fixed, VirtualTableWrapperProps} from "./interfaces";
 import {C} from "./context";
-import {predicateTbodyHeight, setActualRowCount} from "./helper";
+import {upateRowAndbodyHeight, setActualRowCount} from "./helper";
 
 class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
     private actualRowCount: number;
     private fixed: Fixed;
+    private readonly inst: React.RefObject<HTMLTableSectionElement>;
 
     public constructor(props: VirtualTableWrapperProps) {
         super(props);
         this.actualRowCount = 0;
         this.fixed = Fixed.UNKNOWN;
+        this.inst = React.createRef();
     }
 
     public render(): JSX.Element {
@@ -24,7 +26,7 @@ class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
                             setActualRowCount(children.length);
                             this.actualRowCount = children.length;
                         }
-                        return <tbody {...restProps}>{children.slice(head, tail)}</tbody>
+                        return <tbody {...restProps} ref={this.inst}>{children.slice(head, tail)}</tbody>
                     }
                 }
             </C.Consumer>
@@ -33,12 +35,12 @@ class VirtualTableWrapper extends React.Component<VirtualTableWrapperProps> {
 
     public componentDidMount(): void {
         if(this.fixed !== Fixed.NO) return;
-        predicateTbodyHeight()
+        upateRowAndbodyHeight(this.inst)
     }
 
     public componentDidUpdate(): void {
         if(this.fixed !== Fixed.NO) return;
-        predicateTbodyHeight()
+        upateRowAndbodyHeight(this.inst)
     }
 }
 

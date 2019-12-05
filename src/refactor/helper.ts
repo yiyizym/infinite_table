@@ -17,74 +17,47 @@ export const updateWrapStyle = (wrap: HTMLDivElement, height: number): void => {
 };
 
 
-const collectRowHeight = (rowIndex: number, rowRef: React.RefObject<HTMLTableRowElement>): Promise<number> => {
-    return new Promise((resolve, reject) => {
-        window.requestAnimationFrame(() => {
-            const store = Store.get(getCurrentID()) as StoreType;
-            const { computedTbodyHeight = 0, rowHeight = [] } = store;
-            let newComputedHeight = computedTbodyHeight;
-            const trHeight = rowRef.current!.offsetHeight;
-            if(store.possibleRowHeight === -1) {
-                store.possibleRowHeight = trHeight;
-            }
-            if(rowHeight[rowIndex]) {
-                newComputedHeight += (trHeight - rowHeight[rowIndex])
-            } else {
-                newComputedHeight += trHeight - store.possibleRowHeight;
-            }
-            rowHeight[rowIndex] = trHeight;
-            store.rowHeight = rowHeight;
-            resolve(newComputedHeight)
-        })
-    })
-};
+//updateRowHeight(this.props.children[0].props.index, this.inst);
+export const registerRow = (rowInstance: React.RefObject<HTMLTableRowElement>): void => {
 
-export const updateTbodyAndRowHeight = async (rowIndex: number, rowRef: React.RefObject<HTMLTableRowElement>): Promise<void> => {
+}
+
+const updateRowHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const newComputedHeight = await collectRowHeight(rowIndex, rowRef);
-    if(store.computedTbodyHeight !== newComputedHeight && store.rowLoadStatus === RowLoadStatus.LOADED) {
-        store.computedTbodyHeight = newComputedHeight;
-        updateWrapStyle(store.wrapInst.current as  HTMLDivElement, newComputedHeight);
-        const leftFixedStore = Store.get(0 - getCurrentID());
-        const rightFixedStore = Store.get((1 << 31) + getCurrentID());
-
-        leftFixedStore && updateWrapStyle(leftFixedStore.wrapInst.current as HTMLDivElement, newComputedHeight);
-        rightFixedStore && updateWrapStyle(rightFixedStore.wrapInst.current as HTMLDivElement, newComputedHeight);
-    }
+    const { rowHeight = [] } = store;
+    const rows = Array.from(tableBodyInstance.current!.querySelectorAll('tr'));
+    rows.forEach((row): void => {
+        let rowKey = Number(row.getAttribute('data-row-key') || '0');
+        let trHeight = row.offsetHeight
+        if(store.possibleRowHeight === -1) {
+            store.possibleRowHeight = trHeight;
+        }
+        rowHeight[rowKey] = trHeight;
+    });
+    store.rowHeight = rowHeight;
 };
-
 
 export const  setActualRowCount = (rowCount: number): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const preRowCount = store.rowCount || 0;
-    store.reComputeCount = rowCount - preRowCount;
     store.rowCount = rowCount;
 };
 
-
-export const predicateTbodyHeight = (): void => {
+export const updateTableBodyHeight = (): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { possibleRowHeight, rowLoadStatus, rowCount, rowHeight } = store;
-    let { computedTbodyHeight = 0, reComputeCount } = store;
+    const { rowHeight } = store;
+    store.tableWrapHeight = rowHeight.reduce((prev, curr) => prev + curr ,0);
+    if(store.rowLoadStatus !== RowLoadStatus.LOADED) {return;}
+    updateWrapStyle(store.wrapInst.current as  HTMLDivElement, store.tableWrapHeight);
+    const leftFixedStore = Store.get(0 - getCurrentID());
+    const rightFixedStore = Store.get((1 << 31) + getCurrentID());
+    leftFixedStore && updateWrapStyle(leftFixedStore.wrapInst.current as HTMLDivElement, store.tableWrapHeight);
+    rightFixedStore && updateWrapStyle(rightFixedStore.wrapInst.current as HTMLDivElement, store.tableWrapHeight);
+}
 
-    if(rowLoadStatus === RowLoadStatus.INIT) return;
 
-    // row 的数量比之前的要少
-    if(reComputeCount < 0) {
-        for (let i = rowCount; reComputeCount < 0; ++i,++reComputeCount){
-            if(!rowHeight[i]) { rowHeight[i] = possibleRowHeight }
-            computedTbodyHeight -= rowHeight[i];
-        }
-    }
-    // row 的数量比之前的要多
-    else if(reComputeCount > 0) {
-        for (let i = rowCount - 1; reComputeCount > 0; --i,--reComputeCount) {
-            if(!rowHeight[i]) { rowHeight[i] = possibleRowHeight }
-            computedTbodyHeight += rowHeight[i];
-        }
-    }
-
-    store.computedTbodyHeight = computedTbodyHeight;
+export const upateRowAndbodyHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
+    updateRowHeight(tableBodyInstance);
+    updateTableBodyHeight();
 };
 
 
@@ -119,7 +92,6 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
     while(overScanCount-- > 0 && j < rowCount) {
         j++;
     }
-
     return [i, j, 0|accumulatedTop];
 
 };

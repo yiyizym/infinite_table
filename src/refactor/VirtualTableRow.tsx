@@ -1,7 +1,7 @@
 import React from "react";
 import {Fixed, StoreType, RowLoadStatus, VirtualTableRowProps} from "./interfaces";
 import {C} from "./context";
-import {updateTbodyAndRowHeight} from "./helper";
+import {registerRow} from "./helper";
 import Store, {getCurrentID} from "./store";
 
 class VirtualTableRow extends React.Component<VirtualTableRowProps> {
@@ -32,14 +32,12 @@ class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
     public componentDidMount():void {
         if(this.fixed !== Fixed.NO) return;
-        updateTbodyAndRowHeight(this.props.children[0].props.index, this.inst);
-        const store = Store.get(getCurrentID()) as StoreType;
-        if(store.rowLoadStatus === RowLoadStatus.INIT) { store.rowLoadStatus = RowLoadStatus.LOADED; }
+        registerRow(this.inst);
     }
 
     public componentDidUpdate():void {
         if(this.fixed !== Fixed.NO) return;
-        updateTbodyAndRowHeight(this.props.children[0].props.index, this.inst)
+        registerRow(this.inst)
     }
 
 

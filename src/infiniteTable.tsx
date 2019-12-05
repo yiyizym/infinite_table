@@ -37,105 +37,105 @@ interface InfiniteTableState {
   endIndex: number;
 }
 
-const pageSize = 50
-const preTableItem = 20
+const pageSize = 50;
+const preTableItem = 20;
 
-let tableTop: number
-let ticking: boolean
-let formerStartIndex: number
-let formerEndIndex: number
+let tableTop: number;
+let ticking: boolean;
+let formerStartIndex: number;
+let formerEndIndex: number;
 
 const initGlobalVariables = (): void => {
-  tableTop = 0
-  ticking = false
-  formerStartIndex = 0
+  tableTop = 0;
+  ticking = false;
+  formerStartIndex = 0;
   formerEndIndex = 0
-}
+};
 
 const getCustomTable = (itemHeight: number, total: number, instance: React.Component<any>): React.ComponentClass<{style: React.CSSProperties}> => {
   class CustomTable extends React.Component<{style: React.CSSProperties}> {
-    private infiniteTableInstance = instance
-    private tableRef = React.createRef<HTMLTableElement>()
+    private infiniteTableInstance = instance;
+    private tableRef = React.createRef<HTMLTableElement>();
 
     private calculateTableTop = (scrollTop: number): number => {
-      let margin = (scrollTop / itemHeight % 1) * itemHeight
+      let margin = (scrollTop / itemHeight % 1) * itemHeight;
       return Math.max(scrollTop - preTableItem * itemHeight - margin, 0)
-    }
+    };
 
     private isFixedTable = (): boolean => {
       // MEMO fixed 的可能值是 'left' / 'right' / undefined
       // @ts-ignore
       return undefined !== this.props.children[0].props.fixed
-    }
+    };
 
     private calculateIndexs = (containerScrollTop: number): {startIndex: number; endIndex: number} => {
       // itemHeight tr 的高度
       // currentTableTrIndexInView 当前刚好能看得到的 tr 的 Index
-      const currentTableTrIndexInView = Math.floor(containerScrollTop / itemHeight)
+      const currentTableTrIndexInView = Math.floor(containerScrollTop / itemHeight);
       // startIndex dataSource 的切片开始值
-      const startIndex = Math.max(currentTableTrIndexInView - preTableItem, 0)
+      const startIndex = Math.max(currentTableTrIndexInView - preTableItem, 0);
       // endIndex dataSource 的切片结束值
-      const endIndex = startIndex + pageSize - 1
+      const endIndex = startIndex + pageSize - 1;
       return {
         startIndex,
         endIndex
       }
-    }
+    };
 
     private reposition = (): void  => {
       if (!this.tableRef.current) {
-        ticking = false
+        ticking = false;
         return
       }
-      const table = this.tableRef.current
-      const containerScrollTop = (table.parentElement as HTMLElement).scrollTop
-      const {startIndex, endIndex} = this.calculateIndexs(containerScrollTop)
-      tableTop = this.calculateTableTop(containerScrollTop)
+      const table = this.tableRef.current;
+      const containerScrollTop = (table.parentElement as HTMLElement).scrollTop;
+      const {startIndex, endIndex} = this.calculateIndexs(containerScrollTop);
+      tableTop = this.calculateTableTop(containerScrollTop);
       if (formerStartIndex === startIndex && formerEndIndex === endIndex) {
-        ticking = false
+        ticking = false;
         return
       }
       this.infiniteTableInstance.setState({
         startIndex,
         endIndex,
       }, (): void => {
-        formerStartIndex = startIndex
-        formerEndIndex = endIndex
+        formerStartIndex = startIndex;
+        formerEndIndex = endIndex;
         ticking = false
       })
-    }
+    };
 
     private triggerReposition = (): void => {
       if (ticking) { return }
       window.requestAnimationFrame((): void => {
         this.reposition()
-      })
+      });
       ticking = true
-    }
+    };
 
-    private debouncedtriggerReposition = debounce(this.triggerReposition, 100)
+    private debouncedtriggerReposition = debounce(this.triggerReposition, 100);
 
     private addLoadingBackground = (): void => {
       if (this.isFixedTable()) { return }
       if (!this.tableRef.current) { return }
-      const parentElement = this.tableRef.current.parentElement
+      const parentElement = this.tableRef.current.parentElement;
       if (!parentElement) { return }
-      this.tableRef.current.style.background = 'white'
-      parentElement.style.backgroundImage = `url(${LoadingPic})`
-      parentElement.style.backgroundPosition = 'center'
+      this.tableRef.current.style.background = 'white';
+      parentElement.style.backgroundImage = `url(${LoadingPic})`;
+      parentElement.style.backgroundPosition = 'center';
       parentElement.style.backgroundRepeat = 'no-repeat'
-    }
+    };
 
     public componentDidMount(): void {
       if (!this.tableRef.current) { return }
-      const parentElement = this.tableRef.current.parentElement
+      const parentElement = this.tableRef.current.parentElement;
       if (!parentElement) { return }
-      this.addLoadingBackground()
+      this.addLoadingBackground();
       // left or right fixed table will also use this customTable to render
       // dont bind scroll event on them
-      parentElement.style.position = 'relative'
+      parentElement.style.position = 'relative';
       if (this.isFixedTable()) { return }
-      parentElement.style.overflow = 'scroll'
+      parentElement.style.overflow = 'scroll';
       parentElement.addEventListener('scroll', this.debouncedtriggerReposition, {
         passive: true
       })
@@ -144,13 +144,13 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
     public componentWillUnmount(): void {
       if (!this.tableRef.current) { return }
       if (this.isFixedTable()) { return }
-      const parentElement = this.tableRef.current.parentElement
+      const parentElement = this.tableRef.current.parentElement;
       parentElement && parentElement.removeEventListener('scroll', this.debouncedtriggerReposition)
     }
 
     public render(): JSX.Element {
-      const tableStyle = this.props.style
-      tableStyle.transform = `translate3d(0,${tableTop}px,0)`
+      const tableStyle = this.props.style;
+      tableStyle.transform = `translate3d(0,${tableTop}px,0)`;
       return (<>
         <table
             {...this.props}
@@ -170,27 +170,27 @@ const getCustomTable = (itemHeight: number, total: number, instance: React.Compo
     }
   }
 
-  (CustomTable as React.ComponentClass<{style: React.CSSProperties}>).displayName  = 'CustomTable'
+  (CustomTable as React.ComponentClass<{style: React.CSSProperties}>).displayName  = 'CustomTable';
   return CustomTable as React.ComponentClass<{style: React.CSSProperties}>
-}
+};
 
 class InfinityTable<T> extends React.Component<InfiniteTableProps<T>, InfiniteTableState> {
 
   private customTable: React.ComponentClass<{ style: React.CSSProperties }>;
 
   public constructor(props: InfiniteTableProps<T>) {
-    super(props)
+    super(props);
     this.state = {
       startIndex: 0,
       endIndex: pageSize
-    }
-    this.customTable = getCustomTable(props.itemHeight, props.dataSource!.length, this)
+    };
+    this.customTable = getCustomTable(props.itemHeight, props.dataSource!.length, this);
     initGlobalVariables()
   }
 
   public render(): JSX.Element {
-    const { dataSource, components, ...rest } = this.props
-    const {startIndex, endIndex} = this.state
+    const { dataSource, components, ...rest } = this.props;
+    const {startIndex, endIndex} = this.state;
     return (
         <Table
             components={{
