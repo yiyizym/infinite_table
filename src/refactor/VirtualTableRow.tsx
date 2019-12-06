@@ -31,12 +31,12 @@ class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
     public componentDidMount():void {
         if(this.fixed !== Fixed.NO) return;
-        registerRow(this.inst);
+        registerRow(Number(this.props['data-row-key']), this.inst);
     }
 
     public componentDidUpdate():void {
         if(this.fixed !== Fixed.NO) return;
-        registerRow(this.inst)
+        registerRow(Number(this.props['data-row-key']), this.inst);
     }
 
 
