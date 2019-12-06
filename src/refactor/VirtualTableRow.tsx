@@ -1,7 +1,7 @@
 import React from 'react'
 import {Fixed, VirtualTableRowProps} from './interfaces'
 import {C} from './context'
-import {registerRow} from './helper'
+import {recordRowHeight} from './helper'
 
 class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
@@ -31,13 +31,13 @@ class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 
   public componentDidMount(): void {
     // console.log('VirtualTableRow mounted : ', this.fixed)
-    if (this.fixed !== Fixed.NO) {return}
-    registerRow(Number(this.props['data-row-key']), this.inst)
+    if (this.fixed !== Fixed.NO || !this.inst.current) {return}
+    recordRowHeight(Number(this.props['data-row-key']), this.inst.current)
   }
 
   public componentDidUpdate(): void {
-    if (this.fixed !== Fixed.NO) {return}
-    registerRow(Number(this.props['data-row-key']), this.inst)
+    if (this.fixed !== Fixed.NO || !this.inst.current) {return}
+    recordRowHeight(Number(this.props['data-row-key']), this.inst.current)
   }
 
 

@@ -28,11 +28,8 @@ const updateTableWrapHeight = (rowKey: number, row: HTMLTableRowElement): number
   return tableWrapHeight
 }
 
-export const registerRow = (rowKey: number, rowRef: React.RefObject<HTMLTableRowElement>): void => {
-  if (!rowRef.current) { return }
+export const recordRowHeight = (rowKey: number, row: HTMLTableRowElement): void => {
   const store = Store.get(getCurrentID()) as StoreType
-  const row = rowRef.current
-  if (store.possibleRowHeight === -1) {store.possibleRowHeight = row.offsetHeight}
   store.tableWrapHeight = updateTableWrapHeight(rowKey, row)
   if (!(rowKey in store.rowMap)) {store.rowMap[rowKey] = {height: 0}}
   store.rowMap[rowKey].height = row.offsetHeight
@@ -44,8 +41,7 @@ const updateRowHeight = (tableInstance: React.RefObject<HTMLTableElement>): void
   const rows = Array.from(tableInstance.current.querySelectorAll('tr'))
   rows.forEach((row): void => {
     let rowKey = Number(row.getAttribute('data-row-key') || '0')
-    store.tableWrapHeight = updateTableWrapHeight(rowKey, row)
-    store.rowMap[rowKey].height = row.offsetHeight
+    recordRowHeight(rowKey, row)
   })
 }
 
@@ -73,9 +69,11 @@ export const upateRowAndbodyHeight = (tableInstance: React.RefObject<HTMLTableEl
 
 export const calculatePositions = (scrollTop: number): [number, number, number] => {
   const store = Store.get(getCurrentID()) as StoreType
-  const { rowMap, rowCount, height, possibleRowHeight, overScanRowCount } = store
+  const { rowMap, rowCount, height, overScanRowCount } = store
   const rowHeight = Object.values(rowMap).map(record => record.height)
+  const possibleRowHeight = rowHeight[0]
   let overScanCount = overScanRowCount as number
+
 
   // HACK
   let offsetHeight = 10000
@@ -107,7 +105,6 @@ export const calculatePositions = (scrollTop: number): [number, number, number] 
     j++
   }
   return [i, j, 0 | accumulatedTop]
-
 }
 
 
