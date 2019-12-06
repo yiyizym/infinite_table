@@ -28,10 +28,9 @@ function updateTableWrapHeight(rowKey: number, row: HTMLTableRowElement) {
     return tableWrapHeight;
 }
 
-export const registerRow = (rowInstance: React.RefObject<HTMLTableRowElement>): void => {
+export const registerRow = (rowKey: number, rowRef: React.RefObject<HTMLTableRowElement>): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const row = rowInstance.current!;
-    let rowKey = Number(row.getAttribute('data-row-key') || '0');
+    const row = rowRef.current!;
     if(store.possibleRowHeight === -1) {store.possibleRowHeight = row.offsetHeight;}
     store.tableWrapHeight = updateTableWrapHeight(rowKey, row);
     if(!(rowKey in store.rowMap)) {store.rowMap[rowKey] = {height: 0}}

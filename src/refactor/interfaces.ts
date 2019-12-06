@@ -106,7 +106,8 @@ interface PropsWithIndex {
 }
 
 export interface VirtualTableRowProps {
-    children: PropsWithIndex[]
+    children: PropsWithIndex[];
+    'data-row-key': string;
 }
 
 
