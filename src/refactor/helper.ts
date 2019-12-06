@@ -38,10 +38,10 @@ export const registerRow = (rowKey: number, rowRef: React.RefObject<HTMLTableRow
   store.rowMap[rowKey].height = row.offsetHeight
 }
 
-const updateRowHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
-  if (!tableBodyInstance.current) { return }
+const updateRowHeight = (tableInstance: React.RefObject<HTMLTableElement>): void => {
+  if (!tableInstance.current) { return }
   const store = Store.get(getCurrentID()) as StoreType
-  const rows = Array.from(tableBodyInstance.current.querySelectorAll('tr'))
+  const rows = Array.from(tableInstance.current.querySelectorAll('tr'))
   rows.forEach((row): void => {
     let rowKey = Number(row.getAttribute('data-row-key') || '0')
     store.tableWrapHeight = updateTableWrapHeight(rowKey, row)
@@ -56,7 +56,7 @@ export const  setActualRowCount = (rowCount: number): void => {
 
 export const updateTableWrapStyle = (): void => {
   const store = Store.get(getCurrentID()) as StoreType
-  if (store.rowLoadStatus !== RowLoadStatus.LOADED) {return}
+  if (store.tableLoadStatus !== RowLoadStatus.LOADED) {return}
   updateWrapStyle(store.wrapInst.current as  HTMLDivElement, store.tableWrapHeight)
   const leftFixedStore = Store.get(0 - getCurrentID())
   const rightFixedStore = Store.get((1 << 31) + getCurrentID())
@@ -65,8 +65,8 @@ export const updateTableWrapStyle = (): void => {
 }
 
 
-export const upateRowAndbodyHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
-  updateRowHeight(tableBodyInstance)
+export const upateRowAndbodyHeight = (tableInstance: React.RefObject<HTMLTableElement>): void => {
+  updateRowHeight(tableInstance)
   updateTableWrapStyle()
 }
 

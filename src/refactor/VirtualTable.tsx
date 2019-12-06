@@ -9,7 +9,7 @@ import {
   VirtualTableProps,
   VirtualTableState
 } from './interfaces'
-import {calculatePositions, getFixedType, scrollTo, updateTableWrapStyle } from './helper'
+import { calculatePositions, getFixedType, scrollTo, upateRowAndbodyHeight, updateTableWrapStyle } from './helper'
 import Store, {getCurrentID} from './store'
 import {C} from './context'
 
@@ -57,7 +57,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
       store.possibleRowHeight = -1
       store.tableWrapHeight = 0
       store.rowMap = {}
-      store.rowLoadStatus = RowLoadStatus.INIT
+      store.tableLoadStatus = RowLoadStatus.INIT
     } else if (this.fixed === Fixed.LEFT) {
       Store.set(0 - getCurrentID(), { leftPointer: this } as unknown as FixedStoreType)
     } else if (this.fixed === Fixed.RIGHT) {
@@ -109,9 +109,9 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         this.wrapInst.current.parentElement.onscroll = this.scrollHook
         store.wrapInst = this.wrapInst
     }
-    // console.log('VirtualTable mounted : ', this.fixed)
+    console.log('VirtualTable mounted : ', this.fixed)
     updateTableWrapStyle()
-    if (store.rowLoadStatus === RowLoadStatus.INIT) { store.rowLoadStatus = RowLoadStatus.LOADED }
+    if (store.tableLoadStatus === RowLoadStatus.INIT) { store.tableLoadStatus = RowLoadStatus.LOADED }
     this.scrollHook({
       target: { scrollTop: 0, scrollLeft: 0 },
       flag: ScrollEvent.INIT
@@ -119,7 +119,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
   }
 
   public componentDidUpdate(): void {
-    updateTableWrapStyle()
+    upateRowAndbodyHeight(this.inst)
     if (this.fixed !== Fixed.NO) { return }
     this.scrollHook({
       target: { scrollTop: this.scrollTop, scrollLeft: this.scrollLeft },

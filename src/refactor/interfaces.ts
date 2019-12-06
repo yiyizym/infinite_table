@@ -58,7 +58,7 @@ export interface StoreType extends VirtualTableOpts {
   possibleRowHeight: number;
   wrapInst: React.RefObject<HTMLDivElement>;
   context: React.Context<VirtualTableContext>;
-  rowLoadStatus: RowLoadStatus;
+  tableLoadStatus: RowLoadStatus;
   leftPointer: VirtualTable;
   rightPointer: VirtualTable;
   debug: boolean;

@@ -15,7 +15,7 @@ const init = (opts: VirtualTableOpts): StoreType => {
     inner.context = React.createContext<VirtualTableContext>({head: 0, tail: 0, fixed: Fixed.UNKNOWN})
     inner.components = { table: VirtualTable, wrapper: VirtualTableWrapper, row: VirtualTableRow }
   }
-  inner.rowLoadStatus = RowLoadStatus.INIT
+  inner.tableLoadStatus = RowLoadStatus.INIT
   return inner
 }
 
