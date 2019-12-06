@@ -48,8 +48,11 @@ export interface StoreType extends VirtualTableOpts {
         wrapper: React.ElementType,
         row: React.ElementType
     };
-    tableWrapHeight: number;
     height?: number;
+    tableWrapHeight: number;
+    rowMap: { [key: string]: {
+        height: number;
+    }};
     rowHeight: number[];
     rowCount: number;
     possibleRowHeight: number;

@@ -1,8 +1,7 @@
 import React from "react";
-import {Fixed, StoreType, RowLoadStatus, VirtualTableRowProps} from "./interfaces";
+import {Fixed, VirtualTableRowProps} from "./interfaces";
 import {C} from "./context";
 import {registerRow} from "./helper";
-import Store, {getCurrentID} from "./store";
 
 class VirtualTableRow extends React.Component<VirtualTableRowProps> {
 

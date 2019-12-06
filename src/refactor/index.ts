@@ -5,7 +5,6 @@ import {TableComponents} from "antd/es/table";
 import VirtualTable from "./VirtualTable";
 import VirtualTableWrapper from "./VirtualTableWrapper";
 import VirtualTableRow from "./VirtualTableRow";
-import {log} from "./helper";
 
 const init = (opts: VirtualTableOpts): StoreType => {
     let actualOpts = Object.assign({}, {overScanRowCount: 5}, opts);

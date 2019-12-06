@@ -17,24 +17,35 @@ export const updateWrapStyle = (wrap: HTMLDivElement, height: number): void => {
 };
 
 
-//updateRowHeight(this.props.children[0].props.index, this.inst);
-export const registerRow = (rowInstance: React.RefObject<HTMLTableRowElement>): void => {
-
+function updateTableWrapHeight(rowKey: number, row: HTMLTableRowElement) {
+    const store = Store.get(getCurrentID()) as StoreType;
+    let {tableWrapHeight} = store;
+    if (rowKey in store.rowMap) {
+        tableWrapHeight = tableWrapHeight - store.rowMap[rowKey].height + row.offsetHeight
+    } else {
+        tableWrapHeight += row.offsetHeight;
+    }
+    return tableWrapHeight;
 }
+
+export const registerRow = (rowInstance: React.RefObject<HTMLTableRowElement>): void => {
+    const store = Store.get(getCurrentID()) as StoreType;
+    const row = rowInstance.current!;
+    let rowKey = Number(row.getAttribute('data-row-key') || '0');
+    if(store.possibleRowHeight === -1) {store.possibleRowHeight = row.offsetHeight;}
+    store.tableWrapHeight = updateTableWrapHeight(rowKey, row);
+    if(!(rowKey in store.rowMap)) {store.rowMap[rowKey] = {height: 0}}
+    store.rowMap[rowKey].height = row.offsetHeight;
+};
 
 const updateRowHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { rowHeight = [] } = store;
     const rows = Array.from(tableBodyInstance.current!.querySelectorAll('tr'));
     rows.forEach((row): void => {
         let rowKey = Number(row.getAttribute('data-row-key') || '0');
-        let trHeight = row.offsetHeight
-        if(store.possibleRowHeight === -1) {
-            store.possibleRowHeight = trHeight;
-        }
-        rowHeight[rowKey] = trHeight;
+        store.tableWrapHeight = updateTableWrapHeight(rowKey, row);
+        store.rowMap[rowKey].height = row.offsetHeight;
     });
-    store.rowHeight = rowHeight;
 };
 
 export const  setActualRowCount = (rowCount: number): void => {
@@ -42,28 +53,27 @@ export const  setActualRowCount = (rowCount: number): void => {
     store.rowCount = rowCount;
 };
 
-export const updateTableBodyHeight = (): void => {
+export const updateTableWrapStyle = (): void => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { rowHeight } = store;
-    store.tableWrapHeight = rowHeight.reduce((prev, curr) => prev + curr ,0);
     if(store.rowLoadStatus !== RowLoadStatus.LOADED) {return;}
     updateWrapStyle(store.wrapInst.current as  HTMLDivElement, store.tableWrapHeight);
     const leftFixedStore = Store.get(0 - getCurrentID());
     const rightFixedStore = Store.get((1 << 31) + getCurrentID());
     leftFixedStore && updateWrapStyle(leftFixedStore.wrapInst.current as HTMLDivElement, store.tableWrapHeight);
     rightFixedStore && updateWrapStyle(rightFixedStore.wrapInst.current as HTMLDivElement, store.tableWrapHeight);
-}
+};
 
 
 export const upateRowAndbodyHeight = (tableBodyInstance: React.RefObject<HTMLTableSectionElement>): void => {
     updateRowHeight(tableBodyInstance);
-    updateTableBodyHeight();
+    updateTableWrapStyle();
 };
 
 
 export const calculatePositions = (scrollTop: number): [number, number, number] => {
     const store = Store.get(getCurrentID()) as StoreType;
-    const { rowHeight, rowCount, height, possibleRowHeight, overScanRowCount } = store;
+    const { rowMap, rowCount, height, possibleRowHeight, overScanRowCount } = store;
+    const rowHeight = Object.values(rowMap).map(record => record.height);
 
     let overScanCount = overScanRowCount as number;
 
@@ -104,11 +114,4 @@ export const scrollTo = (top: number, left: number): void => {
     const leftFixedStore = Store.get(0 - getCurrentID()), rightFixedStore = Store.get(1 << 31 + getCurrentID());
     if(leftFixedStore) { leftFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
     if(rightFixedStore) { rightFixedStore.wrapInst.current!.parentElement!.scrollTo(left, top) }
-};
-
-
-export const log = (...args: any): void => {
-    const store = Store.get(getCurrentID()) as StoreType;
-    if(!store.debug) { return }
-    console.log(...args);
 };

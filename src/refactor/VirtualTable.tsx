@@ -9,7 +9,7 @@ import {
     VirtualTableProps,
     VirtualTableState
 } from "./interfaces";
-import {calculatePositions, getFixedType, log, scrollTo, updateTableBodyHeight, updateWrapStyle} from "./helper";
+import {calculatePositions, getFixedType, scrollTo, updateTableWrapStyle, updateWrapStyle} from "./helper";
 import Store, {getCurrentID} from "./store";
 import {C} from "./context";
 
@@ -47,9 +47,6 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
         this.setStateLocked = false;
 
         this.fixed = getFixedType(props);
-
-        log('init VirtualTable:', this);
-
         this.initStore();
 
     }
@@ -60,6 +57,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
             if (store.rowLoadStatus !== RowLoadStatus.CACHE) {
                 store.possibleRowHeight = -1
                 store.tableWrapHeight = 0
+                store.rowMap = {}
             }
             store.rowLoadStatus = RowLoadStatus.INIT;
         } else if(this.fixed === Fixed.LEFT) {
@@ -110,8 +108,7 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
                 this.wrapInst.current!.parentElement!.onscroll = this.scrollHook;
                 store.wrapInst = this.wrapInst;
         }
-        updateWrapStyle(this.wrapInst.current as HTMLDivElement, store.tableWrapHeight);
-        if (this.props.children[2].props.children.length === 0) { return } // table body 的 children
+        updateTableWrapStyle();
         if(store.rowLoadStatus === RowLoadStatus.INIT) { store.rowLoadStatus = RowLoadStatus.LOADED; }
         this.scrollHook({
             target: { scrollTop: 0, scrollLeft: 0 },
@@ -120,16 +117,8 @@ class VirtualTable extends React.Component<VirtualTableProps, VirtualTableState>
     }
 
     public componentDidUpdate(): void {
-        const store = Store.get(getCurrentID()) as StoreType;
-        if(this.fixed === Fixed.LEFT) {
-            const leftStore = Store.get(0 - getCurrentID()) as StoreType;
-            return updateWrapStyle(leftStore.wrapInst.current!, store.tableWrapHeight);
-        } else if(this.fixed === Fixed.RIGHT) {
-            const rightStore = Store.get(0 - getCurrentID()) as StoreType;
-            return updateWrapStyle(rightStore.wrapInst.current!, store.tableWrapHeight);
-        }
-        updateWrapStyle(store.wrapInst.current!, store.tableWrapHeight);
-
+        updateTableWrapStyle();
+        if(this.fixed !== Fixed.NO) { return }
         this.scrollHook({
             target: { scrollTop: this.scrollTop, scrollLeft: this.scrollLeft },
             flag: ScrollEvent.RECOMPUTE
